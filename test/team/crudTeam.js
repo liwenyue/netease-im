@@ -1,37 +1,37 @@
 /**
  * Created by henryleu on 9/6/16.
  */
-var assert = require('chai').assert;
-var co = require('co');
-var nim = require('../sdk');
-var fixture = require('../fixture');
-var Nim = require('../../lib');
-var codeDefs = require('../../lib/codeDefs');
+const assert = require('chai').assert;
+const co = require('co');
+const nim = require('../sdk');
+const fixture = require('../fixture');
+const Nim = require('../../lib');
+const codeDefs = require('../../lib/codeDefs');
 
-var inviteeApproveMode = Nim.inviteeApproveMode;
-var joinMode = Nim.joinMode;
-var inviteeMode = Nim.inviteeMode;
-var inviterMode = Nim.inviterMode;
-var updateMode = Nim.updateMode;
-var updateCustomMode = Nim.updateCustomMode;
-var queryFlag = Nim.queryFlag;
+const inviteeApproveMode = Nim.inviteeApproveMode;
+const joinMode = Nim.joinMode;
+const inviteeMode = Nim.inviteeMode;
+const inviterMode = Nim.inviterMode;
+const updateMode = Nim.updateMode;
+const updateCustomMode = Nim.updateCustomMode;
+const queryFlag = Nim.queryFlag;
 
 
 describe('crudTeam', function(){
 
     it('create read update and delete a team', function(done){
-        var apple = fixture.userApple;
-        var banana = fixture.userBanana;
-        var coconut = fixture.userCoconut;
-        var durian = fixture.userDurian;
-        var result = null;
-        var tid = null;
-        var teams = null;
+        const apple = fixture.userApple;
+        const banana = fixture.userBanana;
+        const coconut = fixture.userCoconut;
+        const durian = fixture.userDurian;
+        let result = null;
+        let tid = null;
+        let teams = null;
 
         co(function*(){
             try{
                 //create a team
-                var createForm = {
+                const createForm = {
                     owner: apple.id
                     , members: JSON.stringify([banana.id, coconut.id, durian.id])
                     , msg: '好久没聚了, 赶紧来吧'
@@ -50,7 +50,7 @@ describe('crudTeam', function(){
                 tid = result.tid;
 
                 //query created team
-                var queryForm = {
+                const queryForm = {
                     tids: JSON.stringify([tid]),
                     ope:  queryFlag.withMembers
                 };
@@ -61,7 +61,7 @@ describe('crudTeam', function(){
                 assert.equal(teams[0].tname, createForm.tname);
 
                 //update a team
-                var updateForm = {
+                const updateForm = {
                     tid: tid
                     , owner: apple.id
                     , tname: '周末去撸串啊! - updated'

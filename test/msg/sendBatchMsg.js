@@ -1,25 +1,25 @@
 /**
  * Created by henryleu on 9/6/16.
  */
-var assert = require('chai').assert;
-var nim = require('../sdk');
-var fixture = require('../fixture');
-var Nim = require('../../lib');
-var codeDefs = require('../../lib/codeDefs');
+const assert = require('chai').assert;
+const nim = require('../sdk');
+const fixture = require('../fixture');
+const Nim = require('../../lib');
+const codeDefs = require('../../lib/codeDefs');
 
-var msgTypes = Nim.msgTypes;
-var msgOptions = Nim.msgOptions;
+const msgTypes = Nim.msgTypes;
+const msgOptions = Nim.msgOptions;
 
 describe('sendBatchMsg', function(){
 
     describe('text', function(){
-        var apple = fixture.userApple;
-        var banana = fixture.userBanana;
-        var coconut = fixture.userCoconut;
-        var durian = fixture.userDurian;
+        const apple = fixture.userApple;
+        const banana = fixture.userBanana;
+        const coconut = fixture.userCoconut;
+        const durian = fixture.userDurian;
 
         it('send text to list of users', function(done){
-            var form = {
+            const form = {
                 fromAccid:  apple.id,
                 toAccids:   JSON.stringify([banana.id, coconut.id, durian.id]),
                 type:       msgTypes.text,
@@ -37,13 +37,13 @@ describe('sendBatchMsg', function(){
     });
 
     describe('location', function(){
-        var apple = fixture.userApple;
-        var banana = fixture.userBanana;
-        var coconut = fixture.userCoconut;
-        var durian = fixture.userDurian;
+        const apple = fixture.userApple;
+        const banana = fixture.userBanana;
+        const coconut = fixture.userCoconut;
+        const durian = fixture.userDurian;
 
         it('send location to individual', function(done){
-            var form = {
+            const form = {
                 fromAccid:  apple.id,
                 toAccids:   JSON.stringify([banana.id, coconut.id, durian.id]),
                 type:       msgTypes.location,

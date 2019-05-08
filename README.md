@@ -20,20 +20,21 @@ npm install netease-im
 ## Quick Start
 
 ```javascript
-    var Promise = require('bluebird');
-    var config = require('./config');
-    var log4js = require('log4js');
-    var logger = log4js.getLogger();
+    const Promise = require('bluebird');
+    const config = require('./config');
+    const log4js = require('log4js');
+    const Nim = require('netease-im')
+    const logger = log4js.getLogger();
     logger.setLevel('DEBUG');
     
     
-    var nim = new Nim({
+    const nim = new Nim({
         appsecret: config.appsecret,
         appkey: config.appkey,
         logger: logger
     });
 
-    var userForm = {
+    const userForm = {
         accid: accid,
         name: name,
         props: JSON.stringify({type: 'test'}),

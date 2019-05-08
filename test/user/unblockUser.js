@@ -1,18 +1,18 @@
 /**
  * Created by henryleu on 9/6/16.
  */
-var assert = require('chai').assert;
-var nim = require('../sdk');
-var fixture = require('../fixture');
-var codeDefs = require('../../lib/codeDefs');
+const assert = require('chai').assert;
+const nim = require('../sdk');
+const fixture = require('../fixture');
+const codeDefs = require('../../lib/codeDefs');
 
 describe('unblockUser', function(){
 
     describe('unblock a blocked user', function(){
 
         before(function(done){
-            var coconut = fixture.userCoconut;
-            var form = {
+            const coconut = fixture.userCoconut;
+            const form = {
                 accid: coconut.id
             };
             nim.blockUser(form, function(err, result){
@@ -24,8 +24,8 @@ describe('unblockUser', function(){
         });
 
         it('Succeed to unblock a blocked user', function(done){
-            var coconut = fixture.userCoconut;
-            var form = {
+            const coconut = fixture.userCoconut;
+            const form = {
                 accid: coconut.id
             };
             nim.unblockUser(form, function(err, result){
@@ -41,8 +41,8 @@ describe('unblockUser', function(){
     describe('repeat to unblock a unblocked user', function(){
 
         before(function(done){
-            var coconut = fixture.userCoconut;
-            var form = {
+            const coconut = fixture.userCoconut;
+            const form = {
                 accid: coconut.id
             };
             nim.unblockUser(form, function(err, result){
@@ -54,8 +54,8 @@ describe('unblockUser', function(){
         });
 
         it('Succeed to unblock a unblock user', function(done){
-            var coconut = fixture.userCoconut;
-            var form = {
+            const coconut = fixture.userCoconut;
+            const form = {
                 accid: coconut.id
             };
             nim.unblockUser(form, function(err, result){

@@ -1,35 +1,35 @@
 /**
  * Created by henryleu on 9/6/16.
  */
-var assert = require('chai').assert;
-var co = require('co');
-var nim = require('../sdk');
-var fixture = require('../fixture');
-var Nim = require('../../lib');
-var codeDefs = require('../../lib/codeDefs');
+const assert = require('chai').assert;
+const co = require('co');
+const nim = require('../sdk');
+const fixture = require('../fixture');
+const Nim = require('../../lib');
+const codeDefs = require('../../lib/codeDefs');
 
-var inviteeApproveMode = Nim.inviteeApproveMode;
-var joinMode = Nim.joinMode;
-var inviteeMode = Nim.inviteeMode;
-var inviterMode = Nim.inviterMode;
-var updateMode = Nim.updateMode;
-var updateCustomMode = Nim.updateCustomMode;
-var queryFlag = Nim.queryFlag;
+const inviteeApproveMode = Nim.inviteeApproveMode;
+const joinMode = Nim.joinMode;
+const inviteeMode = Nim.inviteeMode;
+const inviterMode = Nim.inviterMode;
+const updateMode = Nim.updateMode;
+const updateCustomMode = Nim.updateCustomMode;
+const queryFlag = Nim.queryFlag;
 
 
 describe('addAndRemoveMember', function(){
-    var apple = fixture.userApple;
-    var banana = fixture.userBanana;
-    var coconut = fixture.userCoconut;
-    var durian = fixture.userDurian;
-    var tid = null;
+    const apple = fixture.userApple;
+    const banana = fixture.userBanana;
+    const coconut = fixture.userCoconut;
+    const durian = fixture.userDurian;
+    let tid = null;
 
     before(function(done){
-        var result = null;
+        let result = null;
         co(function*(){
             try{
                 //create a team
-                var createForm = {
+                const createForm = {
                     owner: apple.id
                     , members: JSON.stringify([apple.id, durian.id])
                     , msg: '好久没聚了, 赶紧来吧'
@@ -56,7 +56,7 @@ describe('addAndRemoveMember', function(){
     });
 
     after(function(done){
-        var result = null;
+        let result = null;
         co(function*(){
             try{
                 //delete the team
@@ -78,9 +78,9 @@ describe('addAndRemoveMember', function(){
     });
 
     it('add a, remove a, add a again, and remove a again', function(done){
-        var result = null;
-        var form = null;
-        var queryForm = null;
+        let result = null;
+        let form = null;
+        let queryForm = null;
 
         co(function*(){
             try{

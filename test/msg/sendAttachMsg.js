@@ -1,24 +1,24 @@
 /**
  * Created by henryleu on 9/6/16.
  */
-var assert = require('chai').assert;
-var nim = require('../sdk');
-var fixture = require('../fixture');
-var Nim = require('../../lib');
-var codeDefs = require('../../lib/codeDefs');
+const assert = require('chai').assert;
+const nim = require('../sdk');
+const fixture = require('../fixture');
+const Nim = require('../../lib');
+const codeDefs = require('../../lib/codeDefs');
 
-var targetTypes = Nim.targetTypes;
-var saveModes = Nim.saveModes;
-var msgOptions = Nim.msgOptions;
+const targetTypes = Nim.targetTypes;
+const saveModes = Nim.saveModes;
+const msgOptions = Nim.msgOptions;
 
 describe('sendAttachMsg', function(){
 
     describe('text', function(){
-        var apple = fixture.userApple;
-        var banana = fixture.userBanana;
+        const apple = fixture.userApple;
+        const banana = fixture.userBanana;
 
         it('send text to individual', function(done){
-            var form = {
+            const form = {
                 from:   apple.id,
                 to:     banana.id,
                 msgtype:targetTypes.individual,
